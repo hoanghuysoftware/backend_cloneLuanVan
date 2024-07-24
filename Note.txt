@@ -1,0 +1,38 @@
+Cấu trúc thư mục và chức năng của chúng:
+src/main/java/com/software
+├── config/           <-- Cấu hình ứng dụng, bao gồm cấu hình bảo mật, cấu hình cơ sở dữ liệu, và các cấu hình khác
+│   └── WebSecurityConfig.java
+├── controller/       <-- Các lớp controller xử lý yêu cầu từ client
+│   └── ProductController.java
+├── dto/              <-- Data Transfer Objects (DTOs) dùng để truyền dữ liệu giữa client và server
+│   └── ProductDTO.java
+├── model/            <-- Các entity và các lớp mô hình dữ liệu
+│   └── Product.java
+├── repository/       <-- Các lớp repository để thực hiện truy vấn cơ sở dữ liệu
+│   └── ProductRepository.java
+├── service/          <-- Các lớp service chứa logic nghiệp vụ
+│   └── ProductService.java
+├── exception/        <-- Các lớp xử lý ngoại lệ và lỗi
+│   └── CustomException.java
+│   └── ErrorResponse.java
+├── mapper/           <-- Các lớp chuyển đổi giữa entity và DTO
+│   └── ProductMapper.java
+├── request/          <-- Các lớp chứa thông điệp đầu vào (input messages)
+│   └── ProductRequest.java
+├── response/         <-- Các lớp chứa thông điệp đầu ra (output messages)
+│   └── ProductResponse.java
+├── utils/           <-- Thư mục chứa các lớp tiện ích
+│   └── DateUtils.java
+│   └── FileHelper.java
+├── payment/          <-- Thư mục chứa các lớp liên quan đến thanh toán
+│   ├── PaymentService.java       <-- Dịch vụ xử lý thanh toán
+│   ├── PaymentController.java    <-- Controller xử lý yêu cầu thanh toán
+│   ├── PaymentGatewayIntegration.java  <-- Lớp tích hợp với hệ thống thanh toán bên ngoài
+│   └── PaymentRequest.java       <-- Lớp đại diện cho thông điệp yêu cầu thanh toán
+├── invoice/          <-- Thư mục chứa các lớp liên quan đến hóa đơn
+│   ├── InvoiceService.java       <-- Dịch vụ xử lý tạo hóa đơn
+│   ├── InvoiceController.java    <-- Controller xử lý yêu cầu tạo hóa đơn
+│   ├── PdfGenerator.java         <-- Lớp tạo hóa đơn PDF
+│   ├── InvoiceRequest.java       <-- Lớp đại diện cho thông điệp yêu cầu hóa đơn
+│   └── InvoiceRepository.java    <-- Repository để lưu trữ thông tin hóa đơn (nếu cần)
+└── Application.java  <-- Điểm vào chính của ứng dụng Spring Boot
