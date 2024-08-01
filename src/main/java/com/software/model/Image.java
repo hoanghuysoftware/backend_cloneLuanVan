@@ -1,31 +1,28 @@
 package com.software.model;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
+import java.sql.Blob;
+
 @Data
+@Entity
 @Builder
 @AllArgsConstructor
 @NoArgsConstructor
-public class DetailPurchaseOrder {
+public class Image {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long idDetailPurchaseOrder;
-    private int number;
-    private Long price;
+    private Long idImage;
+    @Lob
+    private Blob data;
 
     @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "purchaseOrder_id", referencedColumnName = "idPurchaseOrder")
-    @JsonBackReference
-    private PurchaseOrder purchaseOrder;
-
-    @ManyToOne(fetch = FetchType.LAZY, cascade = CascadeType.ALL)
     @JoinColumn(name = "product_id", referencedColumnName = "idProduct")
-    @JsonBackReference
+    @JsonIgnore
     private Product product;
 }
